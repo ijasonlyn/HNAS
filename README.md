@@ -24,6 +24,26 @@ make sure
 
 # Set up X-windows remote forward
 
+```mermaid
+graph LR
+A[Linux<br>X Server<br>port:6000] o---o B[Linux XDMCP<br>X Client<br> UDP:177]
+B o---o C[Windows<br>X Server<br>Xming<br>port:6000]
+```
+
+## Config ssh server(X Client)
+/etc/ssh/sshd.config, set X11Forward to yes;
+
+## Config ssh client
+/etc/ssh/ssh_config, or ~/.ssh/config
+|Source|Setup|
+| ----------- | ----------- |
+|Trusted|ForwardX11 yes; ForwardX11Trusted yes|
+|untrusted|ForwardX11 yes; ForwardX11Trusted No|
+
+```
+startx [x client paras] ---[X server paras]
+```
+
 # Set up NAS
 Use Samba to manage NAS
 
