@@ -19,6 +19,7 @@ make sure
 
 ![image](https://github.com/user-attachments/assets/bef7622e-b533-47b2-8afa-c125cb4cca01)
 
+https://www.digitalocean.com/community/tutorials/how-to-create-raid-arrays-with-mdadm-on-ubuntu
 
 # Set up Ubuntu server
 
@@ -43,6 +44,15 @@ B o---o C[Windows<br>X Server<br>Xming<br>port:6000]
 ```
 startx [x client paras] ---[X server paras]
 ```
+
+## port transfer
+-L: local port to remote
+-R: Remote port to local
+
+ssh -N -L | -R local-port:remote-host:remote-port target
+
+ssh -R 1678:local-host:80 firewall
+Map the remote 1678 port to local web server.
 
 # Set up NAS
 Use Samba to manage NAS
